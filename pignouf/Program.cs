@@ -6,7 +6,17 @@ namespace pignouf
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            do
+            {
+                string cmdString = Console.ReadLine();
+                
+                if (cmdString != null && cmdString != "")
+                {
+                    Console.WriteLine(cmdString);
+                }
+
+            } while (true);
+
         }
     }
 }
