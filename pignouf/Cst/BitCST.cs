@@ -25,6 +25,8 @@ namespace pignouf.Cst
 
         public const UInt64 SquareEmpty = (uint)0;
         public const UInt64 SquareFull = lig_1 | lig_2 | lig_3 | lig_4 | lig_5 | lig_6 | lig_7 | lig_8;
+        
+
 
 
     }
