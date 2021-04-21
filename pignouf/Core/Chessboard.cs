@@ -39,8 +39,9 @@ namespace pignouf.Core
         public byte DernierePrise;
         public byte PriseEnPassant;
 
-
-
+        public UInt64 WOcc {  get {return WKing | WQueen | WRook | WKnight | WBishop | WPawn ; } } // occupation blanche
+        public UInt64 BOcc { get { return BKing | BQueen | BRook | BKnight | BBishop | BPawn; } } // occupation noir
+        public UInt64 AllOcc { get { return WOcc | BOcc; } } // occupation Totale
 
         public void ResetChessBoard()
         {
