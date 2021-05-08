@@ -26,7 +26,7 @@ namespace pignouf.Core
         public UInt64 BPawn { get; set; }
 
         // A qui de jouer 
-        public int Trait { get; set; }
+        public EnumCST.Trait Trait { get; set; }
 
         // enpassant 
         public int enpassant { get; set; }
@@ -61,14 +61,14 @@ namespace pignouf.Core
             BPawn = ulong.MinValue;
 
             // A qui de jouer 
-            Trait = (int)EnumCST.trait.No;
+            Trait = EnumCST.Trait.No;
 
             // enpassant 
             enpassant = (int)Cst.EnumCST.cases.nocase;
         }
 
 
-
+        
 
 
     }

@@ -102,7 +102,7 @@ namespace pignouf.Cst
             Full = 15,
         }
 
-        public enum trait : int
+        public enum Trait : int
         {
             No = -1 ,
             White = 0,

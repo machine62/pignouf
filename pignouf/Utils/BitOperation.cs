@@ -64,6 +64,48 @@ namespace pignouf.Utils
 
 
 
+        public static UInt64 GetColumn(byte bitcase)
+        {
+            return (UInt64)bitcase & 7;
+        }
+
+        public static UInt64 Getline(byte bitcase)
+        {
+            return (UInt64)bitcase >> 3;
+        }
+
+
+        private const UInt64 DEBRUIJN64 = 0x03f79d71b4cb0a89;
+        private static readonly Byte[] INDEX64 =
+        {
+             0, 47,  1, 56, 48, 27,  2, 60,
+            57, 49, 41, 37, 28, 16,  3, 61,
+            54, 58, 35, 52, 50, 42, 21, 44,
+            38, 32, 29, 23, 17, 11,  4, 62,
+            46, 55, 26, 59, 40, 36, 15, 53,
+            34, 51, 20, 43, 31, 22, 10, 45,
+            25, 39, 14, 33, 19, 30,  9, 24,
+            13, 18,  8, 12,  7,  6,  5, 63
+            };
+
+        public static Byte BitScanForward(UInt64 bitmap)
+        {
+            //todo evaluer (System.Numerics.BitOperations.TrailingZeroCount(value);)
+            // ne doit pas etre a 0(bitmap != 0);
+            return INDEX64[((bitmap ^ (bitmap - 1)) * DEBRUIJN64) >> 58];
+        }
+
+
+        public static Byte BitScanForwardWithreset(ref UInt64 bitmap)
+        {
+            // ne doit pas etre a 0(bitmap != 0);
+            byte index = INDEX64[((bitmap ^ (bitmap - 1)) * DEBRUIJN64) >> 58];
+            //reset bit
+            bitmap &= bitmap - 1;
+            return index;
+
+        }
+
 
     }
 }

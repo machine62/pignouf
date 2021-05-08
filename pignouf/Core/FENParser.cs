@@ -357,7 +357,7 @@ namespace pignouf.Core
 
 
             //trait 
-            board.Trait = (this._trait) ? (int)EnumCST.trait.White : (int)EnumCST.trait.Black;
+            board.Trait = (this._trait) ? EnumCST.Trait.White : EnumCST.Trait.Black;
 
             //autres
             board.DernierePrise = this._derniereprise;
